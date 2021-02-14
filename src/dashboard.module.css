@@ -1,0 +1,71 @@
+/* .container{
+    display:flex;
+    flex-flow:row wrap;
+    margin-top: 40px;
+    justify-content: space-around;
+    position: relative;
+} */
+
+.item{
+    
+    columns:4;
+}
+
+.empNames{
+    display:inline-block;
+    background-color:rgb(0, 100, 13);
+    font-size: 25px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 5px;
+    
+}
+
+
+
+.main{
+    
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    background-size: contain;
+    margin-top: 40px;
+    position: relative;
+    overflow:hidden;
+}
+
+.title{
+    text-align: center;
+    background-color: rgb(69, 12, 122);
+    margin:30px 500px 5px 500px;
+    display: block;
+    border-radius: 10px;
+}
+
+.button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 70%;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: darkseagreen;
+}
+
+.main::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: url('./officeimage3.jpeg') 0 0 repeat;
+    background-size: contain;
+    
+  }
+  
