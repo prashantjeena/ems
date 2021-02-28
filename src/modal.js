@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './modal.css';
+import styles from './modal.module.css';
 import {Redirect} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from './officeimage10.jpeg';
+
+import { Form } from 'react-bootstrap';
 const Modal = (props) => {
 
 	const ref = useRef(null);
@@ -20,8 +24,8 @@ const Modal = (props) => {
 	}
 
 	const myChangeHandler = (event) => {
-		if(event.target.id=='username' && setUsername(event.target.value));
-		if(event.target.id=='password' && setPassword(event.target.value));
+		if(event.target.id==='username' && setUsername(event.target.value));
+		if(event.target.id==='password' && setPassword(event.target.value));
 		console.log(username,password);
 	}
 	
@@ -41,38 +45,56 @@ const Modal = (props) => {
 
 	if (redirector) {
 		return (
-			<Redirect to={'/about'}/>
+			<Redirect to={'/dashboard'}/>
 		)
 	}
 
 	return (
 
 
-			<div classname="modal" ref={ref}>
-				<section className="modal-main">
-				<form>
-        <h1> {username}</h1>
-        <input
-					id='username'
-					type="text"
-					placeholder="username"
-					onChange={myChangeHandler}
-        />
-        <input
-					id='password'
-					type="password"
-					placeholder="password"
-					onChange={myChangeHandler}
-        />
+	<div  ref={ref}>
+		<Form className={styles.form}>
+		<img class="fluid col-md-4 m-1" src={Logo} />
 
-				<button onClick={login}> Submit</button>
-      	</form>
+		<label for="username" class='sr-only'>username</label>
+		<input
+			id="username"
+			type="text"
+			placeholder='username'
+			onChange={myChangeHandler}
+			class='form-control'
+			required
+			autoFocus
+		/>
 
-					<button type="button" onClick={props.handleClose}>
-						Close window
-					</button>
-				</section>
-			</div>
+		<label for="password" class='sr-only'>password</label>
+		<input
+			id='password'
+			type="password"
+			placeholder="password"
+			onChange={myChangeHandler}
+			class='form-control'
+			required
+			autoFocus
+		/>
+		
+
+		<div class="form-check mb-2 mr-sm-2">
+			<input
+				class="form-check-input"
+				type="checkbox"
+				id="inlineFormCheck"
+			/>
+			<label class="form-check-label" for="inlineFormCheck">
+				Remember me
+			</label>
+ 		 </div>	
+
+		<div class="mt-3">
+			<button class="btn btn-lg btn-primary btn-block" onClick={login}> Login</button>
+		</div>
+		</Form>
+	</div>
 	);
 };
 

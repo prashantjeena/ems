@@ -64,8 +64,8 @@
     top: -50%;
     left: -50%;
     z-index: -1;
-    background: url('./officeimage3.jpeg') 0 0 repeat;
-    background-size: contain;
+    /* background: url('./officeimage3.jpeg') 0 0 repeat;
+    background-size: contain; */
     
   }
   

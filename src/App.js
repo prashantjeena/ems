@@ -9,7 +9,15 @@ import CreateEmployee from './createEmployee.js';
 import ModifyEmployee from './modifyEmployee.js';
 import DeleteEmployee from './deleteEmployee.js';
 import Sidebar from './components/sidebar.js';
-import Navbar from './nav.js';
+import NavigationBar from './nav.js';
+import Slideshow from './components/slideshow.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Layout from './components/layout.js';
+import Jumbotron from './components/jumbotron.js';
+import Logo from './sidebar.jpeg';
+import Footer from './components/footer.js';
+
+import { Button , Container, Row,Col} from 'react-bootstrap';
 
 
 function App () {
@@ -17,7 +25,10 @@ function App () {
 
 	return (
 	<>
+	<NavigationBar/> 
+	<Container>
 		<Router>	
+		
 			<Switch>
 				<div>
 					<Route exact path='/' component={Home} />
@@ -31,47 +42,65 @@ function App () {
 				</div>
 			</Switch>
 		</Router>
+	</Container>
 	</>
  )
 };
 
 export const Home = () => {
 	const [show,setModalShow] = useState(false);
+	const [showLogin,setLoginShow]=useState(true);
 	
   const showModal = () => {
     setModalShow(true);
+		setLoginShow(false);
   };
 
   const hideModal = () => {
     setModalShow(false);
+		setLoginShow(true);
   };
 
 	return(
-		<main className={styles.container}>
-			<div className={styles.box1}>
-			 <Navbar/> 
-			</div>
-			<div className={styles.box4}>
-				{show && <Modal className='App-header' handleClose={hideModal}>
-					</Modal>}
-				<button  type="button" onClick={showModal}>
-					Login
-				</button>
-			</div>
-			<div className={styles.box2}> 
-				<Sidebar/>
-			</div>
-			<div className={styles.box3}>
-				<h1>
-					This is employee database.
-				</h1>
-			</div>
-			<div className={styles.box5}>
-				This is footer
-			</div >
+		<main >
+			<Container fluid>				
+				<Row>
+					<Col xs={2}>
+					<img  className={styles.logo} src={Logo} alt="logo"/>
+					</Col>
+					<Col xs={8}>
+						<Jumbotron/>
+					</Col>
 
-			
-		</main>
+					<Col >
+					<div  className={styles.App}>
+					{show && <Modal  handleClose={hideModal}>
+						</Modal>}
+					{ showLogin && <Button variant="primary" onClick={showModal} >
+						Login
+					</Button>}	
+					</div>
+					</Col>
+				</Row>
+				<Row>
+					<Col xs={2} >
+						<Sidebar/>
+					</Col>
+					<Col>
+					<h1>
+						<Slideshow/>
+					</h1>
+					</Col>
+
+				</Row>
+				<Row>
+					<Col>
+						<Footer/>
+					</Col>
+				</Row>
+	
+		</Container>
+	</main>
 	)
 
 }

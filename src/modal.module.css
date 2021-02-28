@@ -1,0 +1,9 @@
+.form{
+  max-width: 500px;
+  margin: 50px 30% 40% 30%;
+  padding: 30px;
+  background-color: coral;
+  border-radius: 10px;
+  text-align: center;
+}
+

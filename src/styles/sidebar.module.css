@@ -1,0 +1,15 @@
+
+.sidebar {
+min-height: 500px;
+margin-left: -50px;
+background-color: cadetblue;
+
+}
+
+
+.footer{
+  min-height: 100px;
+  background-color: darkgrey;
+  margin-left:-50px;
+  margin-right: -50px;
+}
